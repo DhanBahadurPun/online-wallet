@@ -7,6 +7,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import MainHeader from "./components/navigation/MainHeader";
+import headerStyles from "~/styles/MainHeader.css";
+
 export const meta = () => ({
   charset: "utf-8",
   title: "New Remix App",
@@ -21,6 +24,9 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <header>
+          <MainHeader />
+        </header>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
@@ -28,4 +34,8 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+export function links() {
+  return [{ rel: "stylesheet", href: headerStyles }];
 }
